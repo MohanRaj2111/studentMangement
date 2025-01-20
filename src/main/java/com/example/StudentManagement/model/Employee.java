@@ -1,6 +1,8 @@
 package com.example.StudentManagement.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +26,8 @@ public class Employee {
     @Column(name = "phone_number")
     private String phoneNumber;
     @Column(name = "password")
+    @NotBlank(message = "Password is mandatory")
+    @Size(min = 8, max = 20, message = "Password must be between 8 and 20 characters")
     private String password;
 
     public Long getId() {
